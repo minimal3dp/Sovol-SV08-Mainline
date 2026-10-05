@@ -18,7 +18,7 @@ class ZoffsetCalibration:
         self.speed = config.getfloat('speed', 180.0, above=0.)
         self.internalendstopoffset = config.getfloat('internalendstopoffset', 0.75)
         self.gcode = self.printer.lookup_object('gcode')
-        self.gcode_move = self.printer.lookup_object('gcode_move')
+        self.gcode_move = self.printer.load_object(config, 'gcode_move')
         self.gcode.register_command("Z_OFFSET_CALIBRATION", self.cmd_Z_OFFSET_CALIBRATION, desc=self.cmd_Z_OFFSET_CALIBRATION_help)
 
         # Let's grab the path and filename for the save_variables from the printer.cfg and make sure we also use the userpath ~/ if it's in there.

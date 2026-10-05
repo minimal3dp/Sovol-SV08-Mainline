@@ -7,6 +7,9 @@ This repository will describe installing mainline/regular klipper (via KIAUH) on
 
 Run it from either eMMC or SD card, you choose.<br>
 
+> [!IMPORTANT]
+> **New (2026-10): Debian 13 / Armbian path.** The BTT CB1 V2.3.4 image below is based on Debian 11, which reached end-of-life on 2026-08-31. Its apt archive is partly broken, and current Moonraker and Crowsnest need Python 3.10+, which it doesn't have. For new installs, follow **[docs/install-armbian.md](docs/install-armbian.md)**: the official Armbian "Sovol SV08" image, which replaces Steps 2–4 below. It includes a no-ST-Link option. The V2.3.4 steps below are kept as the **legacy** path. To go back to stock, see [docs/restore-sovol-stock.md](docs/restore-sovol-stock.md).
+
 **TL;DR**: _make a backup of klipper config, remove the eMMC from the printer, write CB1 image to eMMC, change BoardEnv.txt and system.cfg, put the eMMC back in the printer, install KIAUH; klipper, moonraker, and mainsail (and optional extras), create firmware(s), flash the tool head MCU and board MCU. DONE!_
 
 <br>
@@ -96,8 +99,8 @@ Ok, now you can continue.
 # STEP 2 - FLASHING MEDIA
 
 > [!CAUTION]
-> DO NOT USE V3.0.0 OR HIGHER. PLEASE USE V2.3.4 <br>
-> WE ARE STILL TESTING V3.0.0.. <br>
+> **LEGACY PATH.** These steps use BTT CB1 V2.3.4 (Debian 11, end-of-life). For new installs use **[docs/install-armbian.md](docs/install-armbian.md)** instead. <br>
+> Do NOT use BTT CB1 V3.0.0 / V3.1.0: there are multiple reports of instability on the SV08 (see #123, #229). <br>
 
 First, download the BIGTREETECH CB1 Linux image (the original Sovol SV08 image was also based on this): [https://github.com/bigtreetech/CB1](https://github.com/bigtreetech/CB1/releases/tag/V2.3.4)
 >[!NOTE]
